@@ -1,0 +1,17 @@
+{
+  "name": "guido-route-rail",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "esbuild main.tsx --bundle --jsx=automatic --minify --format=esm --target=es2022 --legal-comments=eof --outfile=rail.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "motion": "12.23.26",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "private": true,
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

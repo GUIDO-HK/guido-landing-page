@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meet GUIDO, a smart navigation cane and companion app being developed for older adults navigating Hong Kong’s hills, stairs and multi-level streets.">
+  <meta name="theme-color" content="#0a0d14">
+  <title>GUIDO · Smart Navigation Cane</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="route-rail/rail.css">
+  <script type="module" src="route-rail/popout.js?v=active-section"></script>
+  <script src="site.js?v=8" defer></script>
+  <script type="module" src="hero-glow.js?v=wordmark"></script>
+  <script src="hero-glyphs.js?v=ambient" defer></script>
+</head>
+<body id="top" tabindex="-1">
+  <a class="skip-link visually-hidden-focusable" href="#main">Skip to content</a>
+  <aside class="page-rail" aria-label="Section navigation" hidden>
+    <button class="rail-trigger" type="button" aria-label="Route guide" popovertarget="route-panel">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </button>
+    <div id="route-panel" class="rail-panel" popover>
+      <div id="route-rail"></div>
+    </div>
+  </aside>
+  <main id="main">
+    <section id="overview" class="hero" aria-labelledby="hero-title">
+      <div class="hero-field" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <h1 id="hero-title">Keep everyday trips<br> <span>within reach.</span></h1>
+          <p class="hero-lede">We’re building GUIDO, a smart cane and app for older adults in HK. Compare routes by distance, slope, and walking time, then follow vibration cues from the cane.</p>
+        </div>
+        <figure class="hero-art">
+          <svg class="hero-wordmark" viewBox="0 0 1000 235" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="glass-tint" x2="1" y2=".65">
+                <stop stop-color="#036880" stop-opacity=".46"/><stop offset=".48" stop-color="#2752ab" stop-opacity=".26"/><stop offset="1" stop-color="#6136a9" stop-opacity=".45"/>
+              </linearGradient>
+              <linearGradient id="glass-light" x2="1" y2=".55">
+                <stop stop-color="#79fcff"/><stop offset=".22" stop-color="#28c9fb"/><stop offset=".49" stop-color="#6599ff"/><stop offset=".75" stop-color="#a19bff"/><stop offset="1" stop-color="#c49bff"/>
+              </linearGradient>
+              <filter id="inner-rim">
+                <feMorphology in="SourceAlpha" operator="erode" radius="9" result="inset"/>
+                <feGaussianBlur in="inset" stdDeviation="9" result="soft-inset"/>
+                <feComposite in="SourceAlpha" in2="soft-inset" operator="out"/>
+              </filter>
+              <mask id="glass-rim" mask-type="alpha">
+                <use href="assets/wordmark-mask.svg#wordmark-shape" filter="url(#inner-rim)"/>
+              </mask>
+            </defs>
+            <use href="assets/wordmark-mask.svg#wordmark-shape" fill="url(#glass-tint)"/>
+            <rect width="1000" height="235" fill="url(#glass-light)" mask="url(#glass-rim)"/>
+          </svg>
+          <div class="hero-wordmark hero-wordmark-shader" aria-hidden="true"></div>
+          <img class="hero-phone" src="assets/app.webp" alt="GUIDO companion app concept on a phone" fetchpriority="high">
+          <img class="hero-cane" src="assets/cane.webp" alt="GUIDO cane concept with a wooden grip, built-in sensors and adjustable shaft" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <section id="why" class="section story-section" aria-labelledby="why-title">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-7"><h2 id="why-title">The shortest route can be the hardest walk.</h2></div>
+          <div class="col-lg-5 story-detail">
+            <figure class="story-route">
+              <svg viewBox="0 0 460 205" role="img" aria-label="Illustrated walking routes from the same start to the MTR. The short route crosses a staircase and the longer route curves around it.">
+                <defs>
+                  <pattern id="story-route-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M20 0H0v20" fill="none" stroke="#e5cb7e"/>
+                  </pattern>
+                </defs>
+                <rect width="460" height="205" rx="12" fill="url(#story-route-grid)"/>
+                <g fill="none" stroke="#d5b663" stroke-width="1.3">
+                  <path d="M0 59c62 0 87-35 143-35S242 64 302 64s101-22 158-22"/>
+                  <path d="M0 75c65 0 88-33 144-33s98 38 158 38 102-21 158-21"/>
+                  <path d="M0 92c67 0 91-31 146-31s96 36 156 36 101-21 158-21"/>
+                </g>
+                <path class="story-route-gentle" d="M53 145c80 0 77 30 157 30 93 0 105-107 199-107"/>
+                <path class="story-route-stairs" d="M53 145l356-77"/>
+                <circle cx="53" cy="145" r="6" fill="#fff" stroke="#284779" stroke-width="3"/>
+                <circle cx="409" cy="68" r="6" fill="#284779" stroke="#fff" stroke-width="2"/>
+                <rect x="216" y="90" width="29" height="29" rx="6" fill="#fff" stroke="#c7d2e3"/>
+                <path d="M222 111h5v-5h5v-5h5v-5" fill="none" stroke="#596c89" stroke-width="2" stroke-linejoin="round"/>
+                <g fill="#284779" font-size="14" font-weight="700" font-family="system-ui, sans-serif">
+                  <text x="37" y="127">Start</text>
+                  <text x="395" y="48">MTR</text>
+                </g>
+              </svg>
+              <figcaption><span>Shorter · stairs</span><span>Longer · gentler slope</span></figcaption>
+            </figure>
+            <p class="intro-note">The shortest route to the MTR may have stairs.<br> A longer route with a gentler slope can be easier to walk.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="product" class="section product-section" aria-labelledby="product-title">
+      <div class="container">
+        <div class="section-intro">
+          <h2 id="product-title">Plan on the phone.<br> Get guidance from the cane.</h2>
+        </div>
+        <div class="panel-frame feature-grid row row-cols-1 row-cols-md-3 g-0">
+          <div class="col"><article class="card feature-card">
+            <div class="feature-symbol feature-route" aria-hidden="true"><span>01</span><svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6h10a3 3 0 0 1 0 6H7a3 3 0 0 0 0 6h10"/></svg></div>
+            <h3>Choose a route you can manage</h3><p>Compare distance, slope and walking time before choosing a route.</p>
+          </article></div>
+          <div class="col"><article class="card feature-card">
+            <div class="feature-symbol feature-guidance" aria-hidden="true"><span>02</span><svg viewBox="0 0 24 24"><rect x="8" y="4" width="8" height="16" rx="2"/><path d="M4 8v8m16-8v8M2 10v4m20-4v4"/></svg></div>
+            <h3>Guidance you can feel</h3><p>The cane pairs with your phone and vibrates to guide you as you walk.</p>
+          </article></div>
+          <div class="col"><article class="card feature-card">
+            <div class="feature-symbol feature-safety" aria-hidden="true"><span>03</span><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="M12 8v6m-3-3h6"/></svg></div>
+            <h3>Fall alerts and saved destinations</h3><p>GUIDO is designed to alert a chosen contact if it detects a fall and guide you to a saved destination if you lose your way.</p>
+          </article></div>
+        </div>
+
+        <div id="walkthrough" class="panel-frame journey" aria-labelledby="journey-title">
+          <div class="journey-copy">
+            <h3 id="journey-title">A walk with GUIDO.</h3>
+            <p>Choose a step to see what the app shows.</p>
+            <div class="journey-steps" role="group" aria-label="Choose an app screen">
+              <button class="btn step-button" type="button" aria-pressed="true" data-step="0"><span>01</span> Choose a route<span class="step-progress" aria-hidden="true"><span></span></span></button>
+              <button class="btn step-button" type="button" aria-pressed="false" data-step="1"><span>02</span> Follow guidance</button>
+              <button class="btn step-button" type="button" aria-pressed="false" data-step="2"><span>03</span> Reach your destination</button>
+              <button class="btn step-button" type="button" aria-pressed="false" data-step="3"><span>04</span> Share feedback</button>
+            </div>
+            <button id="step-playback" class="btn step-playback" type="button" aria-label="Pause autoplay" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path class="play-icon" d="M8 5v14l11-7z"/>
+                <path class="pause-icon" d="M7 5h4v14H7zm6 0h4v14h-4z"/>
+              </svg>
+            </button>
+            <span id="step-announcement" class="visually-hidden" role="status"></span>
+          </div>
+          <figure class="journey-preview">
+            <img id="app-preview" src="assets/app-route.webp" alt="GUIDO app concept showing route selection" loading="lazy">
+            <figcaption id="app-caption">Compare routes to your destination.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="hardware" class="section hardware-section" aria-labelledby="hardware-title">
+      <div class="container">
+        <div class="section-intro row align-items-end gy-3">
+          <div class="col-lg-7"><h2 id="hardware-title">Inside the cane.</h2></div>
+          <p class="col-lg-5 intro-note">A lightweight, adjustable cane with built-in sensors and controls.</p>
+        </div>
+
+        <div class="panel-frame hardware-panel">
+          <figure class="hardware-figure">
+            <img src="assets/cane.webp" width="216" height="943" alt="GUIDO cane concept with a wooden handle and adjustable shaft" loading="lazy">
+          </figure>
+          <ol class="hardware-parts" role="list">
+            <li>
+              <span class="detail-index" aria-hidden="true">01</span>
+              <div><h3>Distance and depth</h3><p>LiDAR and an RGB-D camera measure depth and distance.</p></div>
+            </li>
+            <li>
+              <span class="detail-index" aria-hidden="true">02</span>
+              <div><h3>Position and movement</h3><p>GPS estimates location. A motion sensor tracks movement and orientation.</p></div>
+            </li>
+            <li>
+              <span class="detail-index" aria-hidden="true">03</span>
+              <div><h3>Controls and feedback</h3><p>Physical buttons control the cane. A motor vibrates the handle.</p></div>
+            </li>
+            <li>
+              <span class="detail-index" aria-hidden="true">04</span>
+              <div><h3>Processing and power</h3><p>A battery-powered processor handles sensor data on the cane.</p></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluation" class="section evaluation-section" aria-labelledby="evaluation-title">
+      <div class="container">
+        <div class="section-intro row align-items-end gy-3">
+          <div class="col-lg-7"><p class="eyebrow">Potential impact &amp; evaluation</p><h2 id="evaluation-title">Could GUIDO make everyday trips easier?</h2></div>
+          <p class="col-lg-5 intro-note">The first community pilot will test how people use GUIDO on real walks and gather their feedback.</p>
+        </div>
+
+        <ul class="panel-frame evaluation-list" role="list">
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6h10a3 3 0 0 1 0 6H7a3 3 0 0 0 0 6h10"/></svg>
+            <h3>Everyday mobility</h3>
+            <p>Track walking speed and trip frequency. Ask whether people feel able to try unfamiliar routes.</p>
+          </li>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l1.5-3.8A8.5 8.5 0 1 1 21 11.5Z"/><path d="m9 12 2 2 4-4"/></svg>
+            <h3>Confidence and ease of use</h3>
+            <p>Ask how easy GUIDO is to use, whether it fits daily routines and how concerned people are about falling.</p>
+          </li>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="M12 8v6m-3-3h6"/></svg>
+            <h3>Longer-term safety</h3>
+            <p>A later study could track falls, hip fractures and hospital admissions.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="market" class="section market-section" aria-labelledby="market-title">
+      <div class="container">
+        <div class="section-intro row align-items-end gy-3">
+          <div class="col-lg-7"><p class="eyebrow">Market &amp; business</p><h2 id="market-title">How GUIDO could reach walkers.</h2></div>
+          <p class="col-lg-5 intro-note">We plan to start in Hong Kong with direct sales to families and distribution through district elderly community centres, residential care homes and geriatric rehabilitation clinics.</p>
+        </div>
+
+        <h3 class="market-subtitle">Estimated market for the cane</h3>
+        <div class="panel-frame feature-grid market-grid row row-cols-1 row-cols-md-3 g-0">
+          <div class="col"><article class="feature-card">
+            <p class="eyebrow">Early Hong Kong opportunity</p>
+            <p class="market-value">HK$15M</p>
+            <p>About 6,000 potential buyers if 15% of the 40,000 people we could reach through NGOs and eldercare centres buy a cane.</p>
+          </article></div>
+          <div class="col"><article class="feature-card">
+            <p class="eyebrow">Serviceable market</p>
+            <p class="market-value">HK$850M</p>
+            <p>About 340,000 older adults in Hong Kong and Macau with difficulty walking and a need to get around outdoors.</p>
+          </article></div>
+          <div class="col"><article class="feature-card">
+            <p class="eyebrow">Total addressable market</p>
+            <p class="market-value">HK$3.5B</p>
+            <p>About 1.39 million older adults with mobility decline and fall risk across Hong Kong, Macau, Taiwan and Singapore.</p>
+          </article></div>
+        </div>
+        <p class="market-note">Pitch deck estimates at the proposed HK$2,500 price per cane.</p>
+
+        <h3 class="market-subtitle">Proposed pricing and revenue</h3>
+        <div class="panel-frame feature-grid market-grid row row-cols-1 row-cols-md-3 g-0">
+          <div class="col"><article class="feature-card">
+            <p class="eyebrow">Hardware sales</p>
+            <p class="market-value">HK$2,500 <small>per cane</small></p>
+            <p>One-time purchase through online sales or specialist eldercare retailers.</p>
+          </article></div>
+          <div class="col"><article class="feature-card">
+            <p class="eyebrow">Basic companion app</p>
+            <p class="market-value">Free</p>
+            <p>One linked caregiver, fall alerts, saved destinations and battery tracking.</p>
+          </article></div>
+          <div class="col"><article class="feature-card">
+            <p class="eyebrow">Family Premium</p>
+            <p class="market-value">HK$48 <small>per month</small></p>
+            <p>Optional subscription with access for multiple family members and mobility trends over time.</p>
+          </article></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section roadmap-section" aria-labelledby="roadmap-title">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Planned roadmap</p><h2 id="roadmap-title">From prototype to community pilot.</h2>
+        </div>
+
+        <ol class="panel-frame roadmap-list" role="list">
+          <li>
+            <span class="detail-index" aria-hidden="true">01</span>
+            <div><p class="eyebrow">Sep–Nov 2026</p><h3>Research and bench testing</h3><p>Connect the sensors, set up Bluetooth and develop routing.</p></div>
+          </li>
+          <li>
+            <span class="detail-index" aria-hidden="true">02</span>
+            <div><p class="eyebrow">Dec 2026–Feb 2027</p><h3>Prototyping</h3><p>Assemble a working cane and test fall detection.</p></div>
+          </li>
+          <li>
+            <span class="detail-index" aria-hidden="true">03</span>
+            <div><p class="eyebrow">Mar–May 2027</p><h3>App and user testing</h3><p>Build the first app, test on slopes and get feedback from at least 20 older adults.</p></div>
+          </li>
+          <li>
+            <span class="detail-index" aria-hidden="true">04</span>
+            <div><p class="eyebrow">Jun–Aug 2027</p><h3>Community pilot and demo</h3><p>Build 10–15 canes, run a pilot with a community organisation and report the findings.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="recognition" class="section recognition">
+      <div class="container">
+        <div class="section-intro"><h2>Recognitions in Hong Kong</h2></div>
+        <div class="panel-frame award-grid row row-cols-1 row-cols-md-2 g-0">
+          <div class="col"><article class="card award-card">
+            <img class="award-image" src="assets/orbis-award.webp" alt="GUIDO team members with their trophy and certificates at the Orbis awards" loading="lazy">
+            <div class="card-body">
+              <p class="eyebrow award-label">Orbis · 2025/26</p>
+              <h3>Grand Champion</h3>
+              <p>Visionary Startup Track, Orbis Future Vision Leaders Program</p>
+              <a class="award-link" href="https://hkg.orbis.org/en/futurevisionleader/fvl-startup">View the Orbis results <span aria-hidden="true">↗</span></a>
+            </div>
+          </article></div>
+          <div class="col"><article class="card award-card">
+            <img class="award-image" src="assets/hku-award.webp" alt="GUIDO team members holding a winner sign at HKU’s Pitch New Tech Ideas 2026 event" loading="lazy">
+            <div class="card-body">
+              <p class="eyebrow award-label">HKU Innovation Wing · 2026</p>
+              <h3>Pitch New Tech Ideas Winner</h3>
+              <p>HKU Innovation Academy’s annual pitching competition</p>
+              <a class="award-link" href="https://innoacademy.engg.hku.hk/pitching_2026/">View the HKU competition <span aria-hidden="true">↗</span></a>
+            </div>
+          </article></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="section team-section">
+      <div class="container">
+        <div class="section-intro"><h2>The people behind GUIDO.</h2></div>
+        <div class="panel-frame team-grid">
+          <article class="card team-card">
+            <img src="assets/sirot.webp" alt="" loading="lazy"><div class="card-body"><p class="team-role">Chief Executive Officer</p><h3>Sirot Inthasorn</h3><p class="team-major">Biomedical Sciences · HKU</p><p hidden>Research intern at HKU’s Biomedical Sciences Lab and Top 10 winner at Cyberport CUPP 2026.</p></div>
+          </article>
+          <article class="card team-card">
+            <img src="assets/nutnornont.webp" alt="" loading="lazy"><div class="card-body"><p class="team-role">Chief Technology Officer</p><h3>Nutnornont Chamadol</h3><p class="team-major">Computer Science · HKU</p><p hidden>Student research assistant at HKU Innovation Wing, with research, data analysis and product design internships at NECTEC, VISTEC and ViaBus.</p></div>
+          </article>
+          <article class="card team-card">
+            <span class="team-avatar" aria-hidden="true">GZ</span>
+            <div class="card-body"><p class="team-role">Principal Scientist</p><h3>Grace Zhou</h3><p class="team-major">Computer Engineering · HKU</p></div>
+          </article>
+          <article class="card team-card">
+            <img src="assets/virakarn.webp" alt="" loading="lazy"><div class="card-body"><p class="team-role">Chief Product Officer</p><h3>Virakarn Boonfahpratan</h3><p class="team-major">Biomedical Sciences · HKU</p><p hidden>Laidlaw Scholar and research intern at HKU’s Biomedical Sciences Lab. Finalist at Hackable 2024.</p></div>
+          </article>
+          <article class="card team-card">
+            <img src="assets/apiwit.webp" alt="" loading="lazy"><div class="card-body"><p class="team-role">Chief Financial Officer</p><h3>Apiwit Triwatana</h3><p class="team-major">Financial Technology · HKU</p><p hidden>Financial strategy intern at ABACUS digital and selected participant in Jane Street’s First-Year Trading and Technology Program.</p></div>
+          </article>
+          <article class="card team-card">
+            <img src="assets/napat.webp" alt="" loading="lazy"><div class="card-body"><p class="team-role">Chief Marketing Officer</p><h3>Napat Arjananont</h3><p class="team-major">Politics and Public Administration and Geography&nbsp;·&nbsp;HKU</p></div>
+          </article>
+          <article class="card team-card">
+            <img src="assets/natthakitt.webp" alt="" loading="lazy"><div class="card-body"><p class="team-role">Head of Software Engineering</p><h3>Natthakitt Prapunwattana</h3><p class="team-major">Computer Science · HKU</p></div>
+          </article>
+          <article class="card team-card">
+            <img src="assets/apinat.webp" alt="" loading="lazy"><div class="card-body"><p class="team-role">Head of Hardware Engineering</p><h3>Apinat Ngampanpaisan</h3><p class="team-major">Engineering · HKU</p><p hidden>Student research assistant at HKU Innovation Wing and second-prize winner at the 2023 School Satellite Competition.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><a class="brand" href="#top"><img src="assets/logo.webp" alt="GUIDO" width="106" loading="lazy"></a><p>Smart navigation cane for older adults.<br> Built in Hong Kong, for Hong Kongers. <span aria-hidden="true">🇭🇰</span></p></div>
+        <a class="btn btn-footer" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+        <nav aria-label="Footer navigation" class="footer-links">
+          <a href="#why">Why GUIDO</a><a href="#product">Product</a><a href="#hardware">Hardware</a><a href="#evaluation">Evaluation</a>
+          <a href="#market">Market</a><a href="#roadmap">Roadmap</a><a href="#recognition">Awards</a><a href="#team">Team</a>
+          <a href="https://www.linkedin.com/company/guidonavigation/home/" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2ZM7.93 19.04H4.96V9.5h2.97v9.54ZM6.44 8.2a1.72 1.72 0 1 1 0-3.44 1.72 1.72 0 0 1 0 3.44Zm12.6 10.84h-2.97v-4.64c0-1.1-.02-2.53-1.54-2.53-1.55 0-1.78 1.21-1.78 2.45v4.72H9.78V9.5h2.85v1.3h.04c.4-.75 1.36-1.54 2.81-1.54 3 0 3.56 1.98 3.56 4.55v5.23Z"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
