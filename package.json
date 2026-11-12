@@ -1,0 +1,19 @@
+{
+  "name": "guido-landing-page",
+  "version": "1.0.0",
+  "description": "GUIDO - Smart Navigation Cane Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": [
+    "guido",
+    "navigation",
+    "accessibility"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
